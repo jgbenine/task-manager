@@ -1,0 +1,21 @@
+.linkSecondary {
+  max-width: 200px;
+  padding: 16px 10px;
+  border-radius: 10px;
+  background: $color-primary;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  &:hover{
+    transition: all 0.2s ease-in;
+    background: $color-secondary;
+    color: $color-white;
+  }
+
+  &--black{
+    background: $color-black;
+ 
+  }
+}

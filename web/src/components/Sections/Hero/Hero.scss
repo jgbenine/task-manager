@@ -1,0 +1,45 @@
+.hero{
+  height: 100%;
+  padding: 0 80px;
+  background: url('../../../../public/images/bg-logo.png')no-repeat;
+  background-size: contain;
+  background-position: right;
+
+  &__title{
+    font-size: 80px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    line-height: 70px;
+  }
+
+  &__sub{
+    font-weight: 300;
+    color: $color-primary;
+    font-size: 65px;
+  }
+
+  &__description{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 30px 0 40px 0;
+  }
+
+  &__container{
+    padding-top: 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__wrapperImg{
+    width: 100%;
+    max-width: 443px;
+    height: 100%;
+  }
+
+  &__image{
+    width: 100%;
+    height: 100%;
+  }
+}
