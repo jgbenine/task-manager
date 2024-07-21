@@ -1,0 +1,29 @@
+{
+  "name": "task-manager-web",
+  "version": "0.1.0",
+  "private": true,
+  "author": "jgbenine",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "loader-utils": "^3.2.1",
+    "next": "^14.1.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.69.3",
+    "swiper": "^11.1.0",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  }
+}

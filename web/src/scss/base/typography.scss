@@ -1,0 +1,17 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700,800";
+
+@mixin fontMixin($size-hd, $line-height-hd, $size-fhd, $line-height-fhd, $size-mob, $line-height-mob) {
+  font-size: dCalc($size-hd, $size-fhd);
+
+  @include res-full-fixo {
+    font-size: $size-fhd * 1px;
+  }
+  @include res-lg {
+    font-size: $size-mob * 1px;
+  }
+}
+
+@mixin font-h1 {
+  @include fontMixin(48, 48, 64, 64, 28, 28);
+  font-weight: 700;
+}
