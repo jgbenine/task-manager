@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   sassOptions: {
-    // prependData: `@import "@/scss/main.scss";`,
+    prependData: `@import "@/scss/main.scss";`,
   },
   images: {
     remotePatterns: [
