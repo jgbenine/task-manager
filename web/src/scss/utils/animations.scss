@@ -16,4 +16,16 @@
   100% {transform: rotate(0deg);}
 }
 
+@keyframes translateY {
+  0% {
+    transform: translateY(0); 
+  }
+  50% {
+    transform: translateY(30%); 
+  }
+  100%{
+    transform: translateY(0); 
+  }
+}
+
 

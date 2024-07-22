@@ -1,7 +1,7 @@
-import React from 'react'
-import './Hero.scss';
 import LinkSecondary from '@/components/Links/LinkSecondary/LinkSecondary';
 import Image from 'next/image';
+import MouseIcon from '/public/images/icons/mouse.svg'
+import './Hero.scss';
 
 export function Hero() {
   return (
@@ -19,9 +19,13 @@ export function Hero() {
           <LinkSecondary label='Go to To-do list' href='/' />
         </article>
         <div className="hero__wrapperImg">
-          <Image src="/images/hero-img.png" alt="" width={0} height={0} sizes='100vh' className="hero__image" />
+          <Image src="/images/common/hero-img.png" alt="" width={0} height={0} sizes='100vh' className="hero__image" />
         </div>
       </div>
+        <span className='hero__guide'>
+          <MouseIcon className="hero__icon"/>
+          <p>Navegue</p>
+        </span>
     </section>
   )
 }
