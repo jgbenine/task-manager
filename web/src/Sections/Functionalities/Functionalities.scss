@@ -1,0 +1,12 @@
+.functionalities{
+  padding: 30px 0 68px 0;
+  margin-top: -70px;
+  &__container{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    background: url('/images/common/grafismo-lateral.png')no-repeat;
+    background-size: contain;
+    background-position: 0 -150px;
+  }
+}
