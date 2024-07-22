@@ -10,7 +10,7 @@ export function Header() {
       <Link href="/" className="header__logo">
         <Image
           className="header__imgLogo"
-          src="/images/Logo.svg"
+          src="/images/common/Logo.svg"
           alt='Logo'
           width={0}
           height={0}

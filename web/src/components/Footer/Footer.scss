@@ -1,1 +1,24 @@
-
+.footer {
+  .blackBelt {
+    margin-top: unset;
+    z-index: 10;
+    &::before {
+      top: -32%;
+    }
+    &__content {
+      padding-bottom: 40px;
+    }
+    &__title {
+      font-size: 24px;
+      &:before {
+        content: unset;
+      }
+    }
+    &__description {
+      font-weight: 600;
+    }
+    &:after {
+      content: unset;
+    }
+  }
+}
