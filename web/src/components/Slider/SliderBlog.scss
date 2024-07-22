@@ -1,0 +1,15 @@
+.sliderBlog{
+  .swiper{
+    padding-bottom: 80px;
+    .swiper-slide{
+      width: auto;
+    }
+    .swiper-pagination-bullet{
+      height: 30px;
+      width: 30px;
+    }
+    .swiper-pagination-bullet-active{
+      background: $color-primary;
+    }
+  }
+}

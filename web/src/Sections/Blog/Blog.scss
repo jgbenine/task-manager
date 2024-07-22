@@ -1,0 +1,32 @@
+.blogSection{
+  padding: 0 80px;
+  width: 100%;
+  height: 100%;
+  &__container{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+    padding: 80px 0px 0 80px;
+    position: relative;
+    &::after{
+      content: '';
+      background: $color-primary;
+      width: 80%;
+      height: 80%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 10px;
+    }
+  }
+
+  &__title{
+    font-size: 48px;
+    font-weight: 700;
+    color: $color-white;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 10;
+
+  }
+}
