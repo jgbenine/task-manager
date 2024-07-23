@@ -1,7 +1,9 @@
 import { Input } from '../Form/components/Input/Input';
 import { ButtonPrimary } from '../Buttons/ButtonPrimary';
-import './Modal.scss';
 import MailSvg from '../../../public/images/common/mail.svg'
+import GgIcon from '../../../public/images/icons/gg-icon.svg'
+import './Modal.scss';
+import Link from 'next/link';
 
 type PropsModal = {
   isOpen: boolean;
@@ -27,7 +29,12 @@ export function Modal({ isOpen, toggleOpen }: PropsModal) {
         <form className="modal-form">
           <Input label='Email' type="email" />
           <Input label='Password' type="password" />
+          {/* <button className='modal__btnLoginWith'>
+            Sign with
+            <GgIcon />
+          </button> */}
           <ButtonPrimary label="Sign in" />
+          <Link className="modal__linkRegister" href="/register">Register</Link>
         </form>
       </div>
     </div>
