@@ -1,6 +1,6 @@
-import React from 'react'
 import { Input } from './components/Input/Input'
 import { TextArea } from './components/TextArea/TextArea'
+import { ButtonPrimary } from '../Buttons/ButtonPrimary';
 import './Form.scss';
 import IconMail from '../../../public/images/icons/mail-icon.svg'
 
@@ -26,8 +26,8 @@ export function Formulario() {
           <Input label='Email*' type='email' placeholder='example@email.com' required />
           <Input label='Telephone*' type='tel' placeholder='( )_____-___' required />
         </div>
-        <TextArea label='Menssage' placeholder='Type what you want to say to us' />
-        <button className="form__btn" type='submit'>Send now</button>
+        <TextArea label='Message' placeholder='Type what you want to say to us' />
+        <ButtonPrimary type='submit' label='Send now' />
       </form>
     </div>
   )

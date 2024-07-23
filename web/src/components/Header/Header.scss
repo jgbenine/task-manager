@@ -1,4 +1,4 @@
-.header{
+.header {
   padding: 54px 80px 0 84px;
   display: flex;
   justify-content: space-between;
@@ -7,11 +7,24 @@
   position: absolute;
   top: 0;
   width: 100%;
-  &__logo{
+  &__logo {
     max-height: 50px;
   }
-  &__imgLogo{
+  &__imgLogo {
     width: 100%;
     height: 100%;
+  }
+
+  .btnPrimary {
+    background: $color-black;
+    text-transform: lowercase;
+    letter-spacing: unset;
+    border-radius: unset;
+    padding: 13px;
+    height: unset;
+    max-width: 120px;
+    &:hover {
+      background: $color-black;
+    }
   }
 }

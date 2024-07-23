@@ -6,6 +6,11 @@ import { Header } from "@/components/Header/Header";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
+export const metadata: Metadata = {
+  title: 'Task Manager | To do list',
+  description: '...',
+}
+
 export default async function RootLayout({ children, }: {
   children: React.ReactNode;
 }) {
