@@ -6,8 +6,8 @@ import { deleteTask } from "./routes/delete-task";
 import { updateTask } from "./routes/update-task";
 import { createUser } from "./routes/create-user";
 import { getUserByEmail } from "./routes/get-user";
+import { getTasksUser } from "./routes/get-tasks-by-user";
 import cors from "@fastify/cors"
-import { getTasksUser } from "./routes/get-tasks";
 
 const app = fastify();
 

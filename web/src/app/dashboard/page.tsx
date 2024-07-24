@@ -43,7 +43,7 @@ export default async function Dashboard() {
               <div className="dashboard-column">
                 <DashboardIntroduction title='In progress' quantity={4} />
                 <div className="dashboard-column__wrapper">
-                  {inProgressTasks.map((item: any) => (
+                  {inProgressTasks.map((item: TaskType) => (
                     <CardTask key={item.id} title={item.title} description={item.description} status={item.status} />
                   ))}
                 </div>
@@ -52,7 +52,7 @@ export default async function Dashboard() {
               <div className="dashboard-column">
                 <DashboardIntroduction title='Completed' quantity={4} />
                 <div className="dashboard-column__wrapper">
-                  {completedTasks.map((item: any) => (
+                  {completedTasks.map((item: TaskType) => (
                     <CardTask key={item.id} title={item.title} description={item.description} status={item.status} />
                   ))}
                 </div>

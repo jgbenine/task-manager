@@ -12,7 +12,6 @@ export async function getTasksUser(app: FastifyInstance) {
     },
     handler: async (request) => {
       const { userId } = request.params;
-
       try {
         const tasks = await prisma.task.findMany({
           where: {
@@ -27,7 +26,7 @@ export async function getTasksUser(app: FastifyInstance) {
           },
         });
 
-        return { tasks: tasks };
+        return tasks;
       } catch (error) {
         console.log(error);
       }

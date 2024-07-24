@@ -8,11 +8,6 @@ export const {
   auth,
   signIn,
 } = NextAuth({
-  // pages: {
-  //   // signIn: '/signIn',
-  //   // signOut: '/signOut',
-  //   // newUser: "/register",
-  // },
   providers: [
     Credentials({
       credentials: {
@@ -36,10 +31,29 @@ export const {
         const matches = compareSync(password, user.password);
 
         if (matches) {
-          return { id: user.id, email: user.email, password: user.password };
+          return { id: user.id, email: user.email };
         }
         return null;
       },
     }),
   ],
+  session: {
+    strategy: 'jwt',
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id as string;
+        session.user.email = token.email as string;
+      }
+      return session;
+    },
+  },
 });
