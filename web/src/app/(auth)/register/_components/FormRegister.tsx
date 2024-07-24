@@ -5,7 +5,7 @@ import registerUser from '../_actions/registerUser';
 
 export function FormRegister() {
   return (
-    <form className="form" action={registerUser}>
+    <form className="formRegister" action={registerUser}>
       <Input name="name" label='Name' type="text" />
       <Input name="email" label='Email' type="email" />
       <Input name="password" label='Password' type="password" />

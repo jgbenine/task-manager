@@ -1,4 +1,6 @@
-import { createUserServer } from "@/app/api/_server/user/create-user-server";
+import { UserServer } from "@/app/api/_server/user/user-server";
+import { redirect } from "next/navigation";
+
 
 export default async function registerUser(formData: FormData){
   const name = formData.get('name') as string;
@@ -10,7 +12,8 @@ export default async function registerUser(formData: FormData){
   }
 
   try {
-    await createUserServer({ name, email, password });
+    await UserServer.createUser({ name, email, password });
+    redirect('/')
   } catch (error) {
     console.error('Error creating user:', error);
   }
