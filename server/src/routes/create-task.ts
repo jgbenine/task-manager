@@ -9,24 +9,28 @@ export async function createTask(app: FastifyInstance) {
       body: z.object({
         title: z.string().min(4),
         description: z.string(),
-        userName: z.string(),
         userEmail: z.string().email(),
       }),
     },
     handler: async (request, reply) => {
-      const { title, description, userName, userEmail } = request.body;
+      const { title, description, userEmail } = request.body;
 
       try {
+        let user = await prisma.user.findUnique({
+          where: {
+            email: userEmail,
+          },
+        });
+
+        if (!user) {
+          return reply.status(404).send({ error: "User not found" });
+        }
+
         const task = await prisma.task.create({
           data: {
             title,
             description,
-            User: {
-              create: {
-                name: userName,
-                email: userEmail,
-              },
-            },
+            userId: user.id,
           },
         });
 
