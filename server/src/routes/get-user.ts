@@ -19,6 +19,7 @@ export async function getUserByEmail(app: FastifyInstance) {
             email: userEmail,
           },
           select: {
+            id: true,
             name: true,
             email: true,
             password: true,

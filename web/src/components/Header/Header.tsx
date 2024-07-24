@@ -7,7 +7,7 @@ import Image from 'next/image';
 import './Header.scss';
 
 export function Header() {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
