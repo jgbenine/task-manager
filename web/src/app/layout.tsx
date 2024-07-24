@@ -17,9 +17,7 @@ export default async function RootLayout({ children, }: {
   return (
     <html lang="pt-BR" className={montserrat.className}>
       <body>
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );
