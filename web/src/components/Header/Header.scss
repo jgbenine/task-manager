@@ -27,4 +27,32 @@
       background: $color-black;
     }
   }
+
+  &__user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  &__icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: $color-black;
+    svg{
+      color: $color-white;
+    }
+  }
+
+  &__logout{
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
 }
