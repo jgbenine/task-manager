@@ -1,13 +1,37 @@
 .dashboard {
-  height: 100vh;
-  .header {
-    position: unset;
-    padding: 35px 10px;
+  min-height: 100vh;
+  padding-top: 120px;
+  &__intro{
+    display: flex;
+    justify-content: space-between;
   }
 
   &__title{
     font-weight: 300;
     font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    gap: 5px;
+    text-transform: uppercase;
+    border: 1px solid $color-filter;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  &__icon{
+    color: $color-primary;
+    height: 15px;
   }
 
   &__container {
