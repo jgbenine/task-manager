@@ -5,8 +5,6 @@ import { useSessionContext } from './SessionContext';
 
 type TaskContextType = {
   tasks: TaskType[],
-  addNewTask: (task: TaskType) => void;
-  updateTask?: (taskId: number, updatedTask: TaskType) => void;
   refreshTasks: () => void;
 }
 
@@ -14,25 +12,21 @@ const TaskContext = createContext<TaskContextType | undefined>(undefined);
 
 export function TaskProvider({ children }: { children: ReactNode }) {
   const { session } = useSessionContext();
+  const idUser = session?.user?.id as string
   const [tasks, setTasks] = useState<TaskType[]>([]);
 
   useEffect(() => {
     async function fetchTasks() {
-      const idUser = session?.user?.id as string;
+      if (!idUser) return;
       const tasksData = await TasksServer.getTasksByUser(idUser);
       setTasks(tasksData);
     }
     fetchTasks()
-  }, [session])
+  }, [idUser, session])
 
-
-  function addNewTask(newTask: TaskType) {
-    setTasks(prevTasks => [...prevTasks, newTask]);
-  }
 
   async function refreshTasks() {
-    if (!session) return;
-    const idUser = session?.user?.id as string;
+    if (!idUser) return;
     const tasksData = await TasksServer.getTasksByUser(idUser);
     setTasks(tasksData);
   }
@@ -42,8 +36,7 @@ export function TaskProvider({ children }: { children: ReactNode }) {
     <TaskContext.Provider
       value={{
         tasks,
-        addNewTask,
-        refreshTasks
+        refreshTasks,
       }}
     >
       {children}

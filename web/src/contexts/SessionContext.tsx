@@ -1,20 +1,47 @@
 'use client';
-import { createContext, useContext, ReactNode } from 'react';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { useSession, signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation'
 
 type SessionContextType = {
-  session: any;
-  signIn: () => void;
-  signOut: () => void;
+  session: {
+    user: {
+      email: string;
+      id: string;
+    };
+    expires: string;
+  } | null;
+  logOut: () => void;
 };
 
 const SessionContext = createContext<SessionContextType | undefined>(undefined);
 
 export function SessionProvider({ children }: { children: ReactNode }) {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
+  const router = useRouter();
+
+
+  // Transforme os dados de sessão para o formato desejado
+  const sessionData = session ? {
+    user: {
+      email: session.user?.email ?? '',
+      id: session.user?.id ?? ''
+    },
+    expires: session.expires
+  } : null;
+
+
+  const logOut = () => {
+    try {
+      router.push('/'); 
+      signOut();
+    } catch (e) {
+      throw e;
+    }
+  };
 
   return (
-    <SessionContext.Provider value={{ session, signIn, signOut }}>
+    <SessionContext.Provider value={{ session: sessionData, logOut }}>
       {children}
     </SessionContext.Provider>
   );
