@@ -34,7 +34,7 @@
     border-radius: unset;
   }
 
-  .modalLogin-intro {
+  .modalTask-intro {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,7 +48,7 @@
     }
 
     &__title {
-      font-size: 70px;
+      font-size: 22px;
       font-weight: 600;
     }
 
@@ -57,7 +57,19 @@
       font-weight: 500;
       color: $color-primary;
     }
+    &__desc{
+      background: $color-red;
+      margin: 15px 0 10px 0;
+      position: relative;
+      color: $color-white;
+      padding: 10px;
+      border-radius: 2px;
+
+    }
   }
+
+
+  
   .modalLogin-form {
     width: 100%;
     max-width: 350px;

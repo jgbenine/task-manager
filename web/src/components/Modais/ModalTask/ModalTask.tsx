@@ -17,11 +17,10 @@ export default function ModalTask({ isShowing, closeModal }: PropsModal) {
   if (!isShowing) return null;
 
   const { session } = useSessionContext();
-  const { addNewTask, refreshTasks } = useTask();
+  const { refreshTasks } = useTask();
 
   async function handleFormCreateTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
     if (!session) {
       console.error('Usuário não autenticado');
       return;
@@ -31,9 +30,7 @@ export default function ModalTask({ isShowing, closeModal }: PropsModal) {
     const titleTask = formData.get('title') as string;
     const descriptionTask = formData.get('description') as string;
     const userEmail = session.user?.email as string;
-    const newTask = await TasksServer.createTask(titleTask, descriptionTask, userEmail);
-    
-    addNewTask(newTask);
+    await TasksServer.createTask(titleTask, descriptionTask, userEmail);
     closeModal();
     refreshTasks();
   }
