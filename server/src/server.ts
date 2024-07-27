@@ -6,6 +6,7 @@ import { deleteTask } from "./routes/delete-task";
 import { updateTask } from "./routes/update-task";
 import { createUser } from "./routes/create-user";
 import { getUserByEmail } from "./routes/get-user";
+import { getTasksUser } from "./routes/get-tasks-by-user";
 import cors from "@fastify/cors"
 
 const app = fastify();
@@ -30,6 +31,7 @@ app.register(deleteTask);
 app.register(updateTask);
 app.register(createUser);
 app.register(getUserByEmail);
+app.register(getTasksUser);
 
 
 app.listen({ port: 3333, host: "0.0.0.0" }).then(() => {

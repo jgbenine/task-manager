@@ -1,18 +1,17 @@
 'use client'
-import { useState } from 'react'
-import { Modal } from '../Modal/Modal';
-import {ButtonPrimary} from '../Buttons/ButtonPrimary';
+import { ModalLogin } from '../Modais/ModalLogin/ModalLogin';
+import { ButtonPrimary } from '../Buttons/ButtonPrimary';
+import { User } from 'lucide-react'
+import { useSessionContext } from '@/contexts/SessionContext';
 import Link from 'next/link';
 import Image from 'next/image';
+import useModal from '@/hooks/useModal';
 import './Header.scss';
 
+
 export function Header() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
+  const {session, logOut} = useSessionContext();
+  const { isShowing, openModal, closeModal } = useModal();
 
   return (
     <>
@@ -29,13 +28,21 @@ export function Header() {
             priority
           />
         </Link>
-        <ButtonPrimary
-          label="Entrar"
-          title="Realizar login"
-          onClick={toggleModal}
+        {!session?.user ? (
+          <ButtonPrimary
+            label="Entrar"
+            title="Realizar login"
+            onClick={openModal}
           />
+        ) :
+          <div className="header__user">
+            <span className="header__icon">
+              <User />
+            </span>
+            <button className="header__logout" onClick={logOut}>Sair</button>
+          </div>}
       </header>
-      <Modal isOpen={isModalOpen} toggleOpen={toggleModal} />
+      <ModalLogin isShowing={isShowing} closeModal={closeModal} />
     </>
   )
 }

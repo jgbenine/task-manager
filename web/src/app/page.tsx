@@ -4,6 +4,7 @@ import { BlogSection } from "@/Sections/Blog/Blog";
 import { Contact } from "@/Sections/Contact/Contact";
 import "./page.scss";
 
+
 export default function Home() {
   return (
     <main className="home">

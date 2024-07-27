@@ -3,20 +3,19 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { prisma } from "../lib/prisma";
 import { z } from "zod";
 
-export async function getTasksById(app: FastifyInstance) {
-  app.withTypeProvider<ZodTypeProvider>().get("/tasks/:taskId", {
+export async function getTasksUser(app: FastifyInstance) {
+  app.withTypeProvider<ZodTypeProvider>().get("/tasks/user/:userId", {
     schema: {
       params: z.object({
-        taskId: z.string().uuid(),
+        userId: z.string().uuid(),
       }),
     },
     handler: async (request) => {
-      const { taskId } = request.params;
-
+      const { userId } = request.params;
       try {
-        const task = await prisma.task.findUnique({
+        const tasks = await prisma.task.findMany({
           where: {
-            id: taskId,
+            userId,
           },
           select: {
             id: true,
@@ -24,11 +23,10 @@ export async function getTasksById(app: FastifyInstance) {
             description: true,
             status: true,
             created_at: true,
-            User: true,
           },
         });
 
-        return { tasks: task };
+        return tasks;
       } catch (error) {
         console.log(error);
       }

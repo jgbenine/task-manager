@@ -13,8 +13,9 @@ export default async function registerUser(formData: FormData){
 
   try {
     await UserServer.createUser({ name, email, password });
-    redirect('/')
+    console.log('User created successfully');
   } catch (error) {
     console.error('Error creating user:', error);
   }
+  redirect('/')
 }
