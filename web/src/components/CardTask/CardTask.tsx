@@ -1,16 +1,17 @@
 'use client'
-import { TasksServer } from '@/app/api/_server/tasks/tasks-server';
+import { TasksServer } from '@/app/api/_server/tasks/tasks-server'
 import { Pencil, Trash } from 'lucide-react'
-import { useTask } from '@/contexts/TaskContext';
-import './CardTask.scss';
-import ModalUpdate from '../Modais/ModalUpdate/ModalUpdate';
+import { useTask } from '@/contexts/TaskContext'
+import { ModalUpdate } from '../Modais/ModalUpdate/ModalUpdate'
 import useModal from '@/hooks/useModal';
+import './CardTask.scss';
 
 type PropsCardTask = {
   id: string,
   title: string;
   description: string;
-  status: "PENDING" | "IN_PROGRESS" | "COMPLETED";
+  status: "PENDING" | "IN_PROGRESS" | "COMPLETED" | string;
+
 }
 
 export function CardTask({ id, title, description, status }: PropsCardTask) {
@@ -46,8 +47,8 @@ export function CardTask({ id, title, description, status }: PropsCardTask) {
       </div>
       <p className="cardTask__description">{description}</p>
       <span className={`cardTask__status 
-        ${status === 'IN_PROGRESS' ? 'cardTask__status--inProgress' : ''}
-        ${status === 'COMPLETED' ? 'cardTask__status--completed' : ''}`}>
+            ${status === 'IN_PROGRESS' ? 'cardTask__status--inProgress' : ''}
+            ${status === 'COMPLETED' ? 'cardTask__status--completed' : ''}`}>
         {status}
       </span>
       <ModalUpdate
@@ -60,3 +61,5 @@ export function CardTask({ id, title, description, status }: PropsCardTask) {
     </article>
   )
 }
+
+

@@ -3,15 +3,14 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   background: #42424217;
-
+  margin: 5px 0;
   &__intro {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-
   .cardTask-actions {
     display: flex;
     gap: 8px;
