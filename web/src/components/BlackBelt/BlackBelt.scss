@@ -3,7 +3,7 @@
   overflow: hidden;
   z-index: -1;
   &:before {
-    @include res-md {
+    @include res-lg {
       content: "";
       position: absolute;
       top: -27%;
@@ -16,7 +16,7 @@
   }
 
   &:after {
-    @include res-md {
+    @include res-lg {
       content: "";
       position: absolute;
       bottom: -10%;
@@ -37,7 +37,7 @@
     text-align: center;
     background: $color-black;
     padding: 60px 10px;
-    @include res-md {
+    @include res-lg {
       padding: 130px 0 160px 0;
     }
   }
