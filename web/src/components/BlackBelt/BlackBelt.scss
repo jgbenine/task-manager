@@ -1,29 +1,34 @@
-.blackBelt{
+.blackBelt {
   position: relative;
   overflow: hidden;
   z-index: -1;
-  &:before{
-    content: '';
-    position: absolute;
-    top: -27%;
-    left: -46px;
-    width: 150%;
-    height: 150px;
-    background: white;
-    transform: rotate(-4deg);
-  }
-  &:after{
-    content: '';
-    position: absolute;
-    bottom: -20%;
-    left: -46px;
-    width: 150%;
-    height: 164px;
-    background: white;
-    transform: rotate(-4deg);
+  &:before {
+    @include res-lg {
+      content: "";
+      position: absolute;
+      top: -27%;
+      left: -46px;
+      width: 150%;
+      height: 180px;
+      background: white;
+      transform: rotate(-4deg);
+    }
   }
 
-  &__content{
+  &:after {
+    @include res-lg {
+      content: "";
+      position: absolute;
+      bottom: -10%;
+      left: -46px;
+      width: 150%;
+      height: 180px;
+      background: white;
+      transform: rotate(-4deg);
+    }
+  }
+
+  &__content {
     width: 100%;
     display: flex;
     align-items: center;
@@ -31,17 +36,20 @@
     flex-direction: column;
     text-align: center;
     background: $color-black;
-    padding: 120px 0;
+    padding: 60px 10px;
+    @include res-lg {
+      padding: 130px 0 160px 0;
+    }
   }
 
-  &__title{
+  &__title {
     color: $color-white;
-    font-size: 60px;
+    @include subtitleMain;
     font-weight: 600;
     margin-bottom: 30px;
     position: relative;
-    &:before{
-      content: '';
+    &:before {
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -51,15 +59,15 @@
     }
   }
 
-  &__description{
+  &__description {
     color: $color-white;
     max-width: 600px;
-    font-size: 24px;
     line-height: 29.26px;
     font-weight: 400;
+    @include description;
   }
 
-  &__description2{
+  &__description2 {
     color: $color-white;
     margin-top: 20px;
   }

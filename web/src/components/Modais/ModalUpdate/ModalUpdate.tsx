@@ -18,7 +18,7 @@ type PropsModal = {
   statusPlaceholder: string;
 };
 
-export default function ModalUpdate({ idTask, isShowing, closeModal, titlePlaceholder, descriptionPlaceholder, statusPlaceholder }: PropsModal) {
+export function ModalUpdate({ idTask, isShowing, closeModal, titlePlaceholder, descriptionPlaceholder, statusPlaceholder }: PropsModal) {
   if (!isShowing) return null;
 
   const { refreshTasks } = useTask();

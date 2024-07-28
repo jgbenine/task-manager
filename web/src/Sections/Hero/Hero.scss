@@ -1,12 +1,56 @@
 .hero {
   height: 100%;
-  padding: 0 80px;
-  background: url("/images/common/bg-logo.png") no-repeat;
-  background-size: contain;
-  background-position: right;
+  padding: 15px 20px;
+  background-size: cover;
+  position: relative;
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/images/common/hero-img.png") no-repeat;
+    background-size: contain;
+    z-index: -2;
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(7px) brightness(0.74) contrast(82%);
+    z-index: -1;
+  }
+  @include res-lg {
+    padding: 0 80px;
+    background: url("/images/common/bg-logo.png") no-repeat;
+    background-size: contain;
+    background-position: top right -100px;
+    &::before, &:after{
+      content: unset;
+    }
+  }
+  @include res-xl{
+    background-position: top right;
+  }
+
+  &__texts{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    @include res-lg{
+      display: block;
+      text-align: left
+    }
+  }
 
   &__title {
-    font-size: 80px;
+    @include titleMain;
     font-weight: 700;
     display: flex;
     flex-direction: column;
@@ -14,23 +58,26 @@
   }
 
   &__sub {
+    @include subtitleMain;
     font-weight: 300;
     color: $color-primary;
-    font-size: 65px;
   }
 
   &__description {
-    font-size: 24px;
     font-weight: 600;
-    margin: 30px 0 40px 0;
+    margin: 10px 0 20px 0;
+    @include description;
+    @include res-md{
+      margin: 30px 0 40px 0;
+    }
   }
 
   &__container {
-    padding: 145px 0 60px 0;
+    padding: 145px 0 15px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .btnPrimary{
+    .btnPrimary {
       border-radius: 6px;
       max-width: 250px;
       text-transform: unset;
@@ -41,9 +88,13 @@
   }
 
   &__wrapperImg {
+    display: none;
     width: 100%;
     max-width: 443px;
     height: 100%;
+    @include res-lg {
+      display: block;
+    }
   }
 
   &__image {
@@ -60,12 +111,25 @@
     align-items: center;
     justify-content: center;
     font-weight: 500;
-    color: $color-gray;
+    color: $color-white;
+    @include res-lg{
+      color: $color-gray;
+    }
     svg {
       width: 20px;
       height: 50px;
+      color: $color-white;
+      stroke: $color-white;
+      @include res-lg{
+        color: $color-gray;
+        stroke: $color-gray;
+      }
       circle {
+        fill: $color-white;
         animation: translateY 2s ease infinite;
+        @include res-lg{
+          fill: $color-gray;
+        }
       }
     }
   }

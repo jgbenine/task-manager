@@ -1,18 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-@mixin fontMixin($size-hd, $line-height-hd, $size-fhd, $line-height-fhd, $size-mob, $line-height-mob) {
-  font-size: dCalc($size-hd, $size-fhd);
+// Breakpoints
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-xlarge: 1200px;
 
-  @include res-full-fixo {
-    font-size: $size-fhd * 1px;
+// Mixin para fontes responsivas usando clamping
+@mixin responsive-font($min-size, $max-size) {
+  font-size: clamp($min-size, 1vw + $min-size, $max-size);
+
+  @media (min-width: $breakpoint-small) {
+    font-size: clamp($min-size, 1.2vw + $min-size, $max-size);
   }
-  @include res-lg {
-    font-size: $size-mob * 1px;
+
+  @media (min-width: $breakpoint-medium) {
+    font-size: clamp($min-size, 1.5vw + $min-size, $max-size);
+  }
+
+  @media (min-width: $breakpoint-large) {
+    font-size: clamp($min-size, 2vw + $min-size, $max-size);
+  }
+
+  @media (min-width: $breakpoint-xlarge) {
+    font-size: $max-size;
   }
 }
 
-@mixin font-h1 {
-  @include fontMixin(48, 48, 64, 64, 28, 28);
-  font-weight: 700;
+// Mixins de títulos e descrições
+@mixin titleMain {
+  @include responsive-font(42px, 80px);
 }
 
+@mixin titleSecondary {
+  @include responsive-font(28px, 48px);
+}
+
+@mixin subtitleMain {
+  @include responsive-font(32px, 65px);
+}
+
+@mixin description {
+  @include responsive-font(16px, 24px);
+}
+
+@mixin descriptionSecondary {
+  @include responsive-font(18px, 32px);
+}

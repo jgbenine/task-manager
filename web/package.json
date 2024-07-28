@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^16.6.0",
     "axios": "^1.6.2",
     "bcrypt-ts": "^5.0.2",
     "loader-utils": "^3.2.1",

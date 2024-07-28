@@ -22,7 +22,7 @@ export function TaskProvider({ children }: { children: ReactNode }) {
       setTasks(tasksData);
     }
     fetchTasks()
-  }, [idUser, session])
+  }, [])
 
 
   async function refreshTasks() {
