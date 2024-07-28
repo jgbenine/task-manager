@@ -1,9 +1,10 @@
 import { Input } from '../../Form/components/Input/Input';
 import { ButtonPrimary } from '../../Buttons/ButtonPrimary';
-import MailSvg from '../../../../public/images/common/mail.svg'
-import './ModalLogin.scss';
+import { X } from 'lucide-react';
 import Link from 'next/link';
+import MailSvg from '../../../../public/images/common/mail.svg'
 import LoginUser from '@/app/(auth)/register/_actions/loginUser';
+import './ModalLogin.scss';
 
 
 type PropsModal = {
@@ -22,7 +23,7 @@ export function ModalLogin({ isShowing, closeModal }: PropsModal) {
   return (
     <div className="modalLogin">
       <div className="modalLogin__content">
-        <button className="modalLogin__btnClose" onClick={closeModal}>close</button>
+        <button className="modalLogin__btnClose" onClick={closeModal}><X /></button>
         <div className="modalLogin-intro">
           <div className="modalLogin-intro__wrapperImg">
             <MailSvg />

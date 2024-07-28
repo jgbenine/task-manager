@@ -1,12 +1,25 @@
 .functionalities{
   padding: 30px 0 68px 0;
-  margin-top: -70px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  @include res-md{
+    display: initial;
+    margin-top: -70px;
+  }
   &__container{
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     gap: 50px;
     background: url('/images/common/grafismo-lateral.png')no-repeat;
     background-size: contain;
     background-position: 0 -150px;
+    @include res-md{
+      padding-bottom: 50px;
+      flex-direction: row;
+      align-items: flex-start;
+    }
   }
 }

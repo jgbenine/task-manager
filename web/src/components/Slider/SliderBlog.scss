@@ -2,14 +2,25 @@
   .swiper{
     padding-bottom: 80px;
     .swiper-slide{
-      width: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include res-md{
+        display: initial;
+        align-items: initial;
+        justify-content: initial;
+        width: auto;
+      }
     }
     .swiper-pagination-bullet{
       height: 30px;
       width: 30px;
     }
     .swiper-pagination-bullet-active{
-      background: $color-primary;
+      background: $color-white;
+      @include res-md{
+        background: $color-primary;
+      }
     }
   }
 }

@@ -1,12 +1,30 @@
 .hero {
   height: 100%;
-  padding: 0 80px;
-  background: url("/images/common/bg-logo.png") no-repeat;
-  background-size: contain;
-  background-position: right;
+  padding: 0px 20px;
+  @include res-lg {
+    padding: 0 80px;
+    background: url("/images/common/bg-logo.png") no-repeat;
+    background-size: contain;
+    background-position: top right -100px;
+  }
+  @include res-xl{
+    background-position: top right;
+  }
+
+  &__texts{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    @include res-lg{
+      display: block;
+      text-align: left
+    }
+  }
 
   &__title {
-    font-size: 80px;
+    @include titleMain;
     font-weight: 700;
     display: flex;
     flex-direction: column;
@@ -14,15 +32,18 @@
   }
 
   &__sub {
+    @include subtitleMain;
     font-weight: 300;
     color: $color-primary;
-    font-size: 65px;
   }
 
   &__description {
-    font-size: 24px;
     font-weight: 600;
-    margin: 30px 0 40px 0;
+    margin: 10px 0 20px 0;
+    @include description;
+    @include res-md{
+      margin: 30px 0 40px 0;
+    }
   }
 
   &__container {
@@ -30,7 +51,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .btnPrimary{
+    .btnPrimary {
       border-radius: 6px;
       max-width: 250px;
       text-transform: unset;
@@ -41,9 +62,13 @@
   }
 
   &__wrapperImg {
+    display: none;
     width: 100%;
     max-width: 443px;
     height: 100%;
+    @include res-lg {
+      display: block;
+    }
   }
 
   &__image {

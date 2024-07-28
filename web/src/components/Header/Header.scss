@@ -1,5 +1,5 @@
 .header {
-  padding: 54px 80px 0 84px;
+  padding: 40px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,12 +7,21 @@
   position: absolute;
   top: 0;
   width: 100%;
+  @include res-lg {
+    padding: 54px 80px 0 84px;
+  }
   &__logo {
-    max-height: 50px;
+    height: 30px;
+    overflow: hidden;
+    @include res-lg {
+      height: 50px;
+    }
   }
   &__imgLogo {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .btnPrimary {
@@ -28,7 +37,7 @@
     }
   }
 
-  &__user{
+  &__user {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,21 +46,21 @@
     text-decoration: underline;
   }
 
-  &__icon{
+  &__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     padding: 5px;
     background-color: $color-black;
-    svg{
+    svg {
       color: $color-white;
     }
   }
 
-  &__logout{
+  &__logout {
     cursor: pointer;
     font-size: 0.8rem;
   }

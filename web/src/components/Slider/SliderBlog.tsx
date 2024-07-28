@@ -11,7 +11,8 @@ export function SliderBlog() {
     <div className="sliderBlog">
       <Swiper
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={10}
+        centeredSlides={true}
         loop={true}
         modules={[Pagination]}
         className="sliderBlog"
@@ -21,12 +22,15 @@ export function SliderBlog() {
         breakpoints={{
           768: {
             slidesPerView: 2,
+            spaceBetween: 30,
           },
           992: {
             slidesPerView: 3,
+            spaceBetween: 40,
           },
           1230: {
             slidesPerView: 4,
+            spaceBetween: 50,
           }}}>
         <SwiperSlide>
           <CardBlog
@@ -81,6 +85,30 @@ export function SliderBlog() {
             title='Careful with missunderstanding the difference between a list of things and a list of desires'
             category='Category'
             imageUrl='/images/common/img-post3.png'
+            link='/'
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardBlog
+            title='Careful with missunderstanding the difference between a list of things and a list of desires'
+            category='Category'
+            imageUrl='/images/common/img-post3.png'
+            link='/'
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardBlog
+            title='Careful with missunderstanding the difference between a list of things and a list of desires'
+            category='Category'
+            imageUrl='/images/common/img-post3.png'
+            link='/'
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardBlog
+            title='Organize your daily job enhance your life performance'
+            category='Category'
+            imageUrl='/images/common/img-post1.png'
             link='/'
           />
         </SwiperSlide>

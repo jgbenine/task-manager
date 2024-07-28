@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <section className='hero'>
       <div className="hero__container">
-        <article>
+        <article className="hero__texts">
           <h1 className="hero__title">
             Organize
             <span className="hero__sub">your daly jobs</span>
