@@ -5,10 +5,13 @@
   "main": "index.js",
   "author": "jgbenine",
   "license": "ISC",
+  "engines": {
+    "node": "20"
+  },
   "scripts": {
-    "start": "node src/server.ts",
+    "start": "node dist/server.js",
     "dev": "tsx watch src/server.ts",
-    "build": "prisma generate && tsx watch src/server.ts"
+    "build": "tsup src"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
@@ -23,6 +26,7 @@
     "fastify": "^4.28.1",
     "fastify-type-provider-zod": "^2.0.0",
     "resend": "^3.5.0",
+    "tsup": "^8.2.3",
     "zod": "^3.23.8"
   }
 }

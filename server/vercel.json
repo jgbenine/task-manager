@@ -17,9 +17,6 @@
         "src": "/(.*)",
         "dest": "src/server.ts"
       }
-    ],
-    "scripts": {
-      "build": "prisma generate && tsc"
-    }
+    ]
   }
   
