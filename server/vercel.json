@@ -1,0 +1,21 @@
+{
+    "name": "api-task-manager",
+    "version": 1,
+    "public": true,
+    "builds": [
+        {
+            "src": "src/server.ts",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/help",
+            "status": 204
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/src/server.ts"
+        }
+    ]
+}
