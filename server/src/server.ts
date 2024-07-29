@@ -25,8 +25,8 @@ app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
 // Hellow Route
-app.get("/hello", async (req, res) => {
-  return { hello: "world" };
+app.get("/", async (req, res) => {
+  return { hello: "Welcome server task manager" };
 });
 
 app.register(createTask);
@@ -38,6 +38,12 @@ app.register(getUserByEmail);
 app.register(getTasksUser);
 app.register(inviteEmail);
 
+
+// Exportar função para Vercel
+export default async (req, res) => {
+  await app.ready();
+  app.server.emit('request', req, res);
+};
 
 app.listen({ port: PORT, host: "0.0.0.0" }, (err, address) => {
   if (err) {
