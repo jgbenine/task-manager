@@ -9,8 +9,11 @@ import { getUserByEmail } from "./routes/get-user";
 import { getTasksUser } from "./routes/get-tasks-by-user";
 import { inviteEmail } from "./routes/invite-email";
 import cors from "@fastify/cors"
+import { env } from "process";
 
 const app = fastify();
+
+const PORT = Number(process.env.PORT) || 3000; 
 
 //Registrando cors, alterar para rotas do front-end em prod.
 app.register(cors, {
@@ -36,6 +39,10 @@ app.register(getTasksUser);
 app.register(inviteEmail);
 
 
-app.listen({ port: 3333, host: "0.0.0.0" }).then(() => {
-  console.log("Server is running on port 3333");
+app.listen({ port: PORT, host: "0.0.0.0" }, (err, address) => {
+  if (err) {
+    console.error('Error starting server:', err);
+    process.exit(1);
+  }
+  console.log(`Server is running on ${address}`);
 });
