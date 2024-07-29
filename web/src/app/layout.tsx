@@ -5,7 +5,6 @@ import { auth } from "../../auth";
 import { TaskProvider } from '@/contexts/TaskContext';
 import { SessionProvider } from "@/contexts/SessionContext";
 import { SessionProvider as NextAuthProvider } from 'next-auth/react';
-// import '../scss/utils/colors.scss';
 import '../scss/main.scss';
 
 const montserrat = Montserrat({ subsets: ["latin"] });

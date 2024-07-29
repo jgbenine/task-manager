@@ -10,8 +10,12 @@ import './Header.scss';
 
 
 export function Header() {
-  const {session, logOut} = useSessionContext();
-  const { isShowing, openModal, closeModal } = useModal();
+  const { session, logOut } = useSessionContext();
+  const { isShowing, openModal, closeModal, activeModal } = useModal();
+
+  function handleModal(){
+    openModal('login')
+  }
 
   return (
     <>
@@ -32,7 +36,7 @@ export function Header() {
           <ButtonPrimary
             label="Entrar"
             title="Realizar login"
-            onClick={openModal}
+            onClick={handleModal}
           />
         ) :
           <div className="header__user">
@@ -42,7 +46,7 @@ export function Header() {
             <button className="header__logout" onClick={logOut}>Sair</button>
           </div>}
       </header>
-      <ModalLogin isShowing={isShowing} closeModal={closeModal} />
+      {activeModal == 'login' && <ModalLogin isShowing={isShowing} closeModal={closeModal} />}
     </>
   )
 }

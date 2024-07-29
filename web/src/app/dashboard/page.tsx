@@ -5,7 +5,7 @@ import './page.scss';
 export default function Dashboard() {
   return (
     <main className="dashboard">
-      <div className="containerMain">
+      <div className="dashboard__container">
         <DashboardIntro />
         <DashboardGrid />
       </div>

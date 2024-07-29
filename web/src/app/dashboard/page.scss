@@ -1,6 +1,7 @@
 .dashboard {
   min-height: 70vh;
-  padding: 160px 80px 80px 80px;
+  padding: 160px 80px 0px 80px;
+  
   &__intro{
     display: flex;
     justify-content: space-between;
@@ -35,7 +36,7 @@
   }
 
   &__container {
-    padding: 20px 10px;
+    padding: 20px 10px 80px 10px;
     height: 100%;
   }
 
