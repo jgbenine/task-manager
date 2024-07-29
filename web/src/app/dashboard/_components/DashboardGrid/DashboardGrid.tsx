@@ -13,6 +13,7 @@ export function DashboardGrid() {
 
   const [allTasks, setAllTasks] = useState<TaskType[]>([]);
 
+  // Atualiza o estado local quando as tarefas são modificadas
   useEffect(() => {
     setAllTasks(tasks);
   }, [tasks]);
@@ -30,7 +31,7 @@ export function DashboardGrid() {
     return result;
   }, []);
 
-  //Drag and drop na mesma coluna
+  //Drag and drop em colunas iguais
   const handleSameColumnMove = useCallback((sourceColumn: TaskType[], source: any, destination: any) => {
     const reorderedTasks = reorderListDrag(sourceColumn, source.index, destination.index);
     setAllTasks(prev =>
@@ -40,34 +41,26 @@ export function DashboardGrid() {
     );
   }, [reorderListDrag]);
 
+
   //Drag and drop em colunas diferentes
   const handleDifferentColumnMove = useCallback((sourceColumn: TaskType[], destColumn: TaskType[], source: any, destination: any) => {
     const [movedTask] = sourceColumn.splice(source.index, 1);
     destColumn.splice(destination.index, 0, movedTask);
 
     if (movedTask) {
-      setAllTasks(prev =>
-        prev.map(task =>
-          task.id === movedTask.id ? { ...task, status: destination.droppableId } : task
-        )
-      );
-
       setAllTasks(prev => {
+        // Atualiza o estado das tarefas para refletir a mudança
         const updatedTasks = prev.map(task => {
-          if (task.status === source.droppableId) {
-            const reorderedSource = sourceColumn.shift();
-            return reorderedSource ? reorderedSource : task;
-          }
-          if (task.status === destination.droppableId) {
-            const reorderedDest = destColumn.shift();
-            return reorderedDest ? reorderedDest : task;
+          if (task.id === movedTask.id) {
+            return { ...task, status: destination.droppableId };
           }
           return task;
         });
+
         return updatedTasks;
       });
     }
-  }, []);
+  }, [reorderListDrag]);
 
   //Função que lida com drop do elemento.
   const onDragEnd = useCallback((result: DropResult) => {
@@ -81,7 +74,6 @@ export function DashboardGrid() {
       handleSameColumnMove(sourceColumn, source, destination);
     } else {
       handleDifferentColumnMove(sourceColumn, destColumn, source, destination);
-      console.log(sourceColumn, destColumn, destination)
     }
   }, [columns, handleSameColumnMove, handleDifferentColumnMove]);
 
