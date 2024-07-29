@@ -13,7 +13,7 @@ export default async function registerUser(formData: FormData){
 
   try {
     await UserServer.createUser({ name, email, password });
-    console.log('User created successfully');
+    window.alert('User created successfully');
   } catch (error) {
     console.error('Error creating user:', error);
   }

@@ -17,7 +17,7 @@ export function ModalLogin({ isShowing, closeModal }: PropsModal) {
 
  async function handleSubmit(FormData: FormData){
     await LoginUser(FormData);
-    closeModal();
+    window.location.reload();
   }
  
   return (
@@ -35,7 +35,7 @@ export function ModalLogin({ isShowing, closeModal }: PropsModal) {
         </div>
         <form className="modalLogin-form" action={handleSubmit}>
           <Input name='email' label='Email' type="email" />
-          <Input name='password' label='Password' type="password" />
+          <Input name='password' label='Password' type="password" autoComplete='off' />
           {/* <button className='modalLogin__btnLoginWith'>
             Sign with
             <GgIcon />

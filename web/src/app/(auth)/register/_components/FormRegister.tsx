@@ -8,7 +8,7 @@ export function FormRegister() {
     <form className="formRegister" action={registerUser}>
       <Input name="name" label='Name' type="text" />
       <Input name="email" label='Email' type="email" />
-      <Input name="password" label='Password' type="password" />
+      <Input name="password" label='Password' type="password" autoComplete='off' />
       <ButtonPrimary type='submit' label="Register" />
     </form>
   )

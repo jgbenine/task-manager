@@ -8,13 +8,14 @@ export default async function LoginUser(FormData: FormData) {
 
   try {
     await signIn("credentials", { email, password });
+    // redirect('/dashboard')
   } catch (error) {
     if(error instanceof AuthError){
       if(error.type === 'CredentialsSignin'){
         error.message = 'Error, credentials invalid'
+        window.alert('Error, credentials invalid');
         throw error;
       }
     }
   } 
-  redirect('/dashboard')
 }
