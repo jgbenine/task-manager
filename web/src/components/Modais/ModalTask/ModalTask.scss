@@ -38,6 +38,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 50px;
+    margin-bottom: 20px;
 
     &__wrapperImg {
       width: 100%;
@@ -49,6 +50,20 @@
     &__title {
       font-size: 22px;
       font-weight: 600;
+      position: relative;
+      color: $color-gray;
+      margin-bottom: 20px;
+
+      &::after{
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background: $color-blue;
+        border-radius: 50%;
+      }
     }
 
     &__description {
@@ -57,7 +72,7 @@
       color: $color-primary;
     }
     &__desc{
-      background: $color-red;
+      background: $color-tertiary;
       margin: 15px 0 10px 0;
       position: relative;
       color: $color-white;

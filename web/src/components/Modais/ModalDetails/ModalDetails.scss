@@ -1,0 +1,43 @@
+.modalTask-details {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 10px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  &__description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.1rem;
+    line-height: 25px;
+    .modalTask-details__icon{
+      width: 60px;
+      font-size: 60px;
+    }
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.1rem;
+    line-height: 22px;
+  }
+}
+
+.modalTask-details__icon {
+  color: $color-primary;
+  height: 30px;
+  width: 30px;
+}

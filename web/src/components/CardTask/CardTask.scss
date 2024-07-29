@@ -25,7 +25,7 @@
       cursor: pointer;
       &:hover{
         transition: all .5s ease;
-        background: $color-primary;
+        background: $color-tertiary;
         .cardTask-actions__icon{
           color: $color-white;
         }
@@ -35,6 +35,12 @@
           background: $color-red-secondary;
         }
       }
+      &--edit{
+        &:hover{
+          background: $color-primary;
+        }
+      }
+      
     }
     &__icon {
       height: 15px;
