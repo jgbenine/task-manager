@@ -13,10 +13,6 @@ export function Header() {
   const { session, logOut } = useSessionContext();
   const { isShowing, openModal, closeModal, activeModal } = useModal();
 
-  function handleModal(){
-    openModal('login')
-  }
-
   return (
     <>
       <header className="header">
@@ -36,7 +32,7 @@ export function Header() {
           <ButtonPrimary
             label="Entrar"
             title="Realizar login"
-            onClick={handleModal}
+            onClick={()=>openModal('login')}
           />
         ) :
           <div className="header__user">

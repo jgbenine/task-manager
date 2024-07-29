@@ -9,13 +9,12 @@ export function DashboardIntro() {
   const { isShowing, openModal, closeModal } = useModal();
   const { session } = useSessionContext();
 
-
   return (
     <>
       {session?.user && (
         <div className="dashboard__intro">
           <h3 className="dashboard__title">Welcome to your dashboard!</h3>
-          <button className="dashboard__btn" onClick={openModal}>
+          <button className="dashboard__btn" onClick={()=>openModal('newtask')}>
             Create new task
             <Plus className="dashboard__icon" />
           </button>

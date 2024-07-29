@@ -13,7 +13,6 @@ export function Hero() {
   const { isShowing, openModal, closeModal } = useModal();
   const { session } = useSessionContext()
 
-
   return (
     <section className='hero'>
       <div className="hero__container">
@@ -26,7 +25,7 @@ export function Hero() {
             The only way to get things done
           </p>
           {!session?.user ? (
-            <ButtonPrimary label='Login to-do list' onClick={openModal} />
+            <ButtonPrimary label='Login to-do list' onClick={()=>openModal('login')} />
           ) : (
             <LinkSecondary label='Go to Dashboard' title='Go to Dashboard' href='/dashboard' />
           )}
