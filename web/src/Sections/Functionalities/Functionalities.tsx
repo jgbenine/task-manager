@@ -14,7 +14,7 @@ export function Functionalities() {
           title='To-do'
           description='Take a breath. Start doing.'
           titleLink='Verify all'
-          hrefLink='/'
+          hrefLink='#contact'
           items={['this is a new task', 'Develop the To-do list page', 'Create the drag-and-drop function', 'Add new tasks', 'Delete itens', 'Erase all', 'Checked item goes to Done list', 'This item label may be edited']}
         />
         <CardList
@@ -24,7 +24,7 @@ export function Functionalities() {
           items={['Get FTP credentials', 'Home Page Design', 'E-mail John about the deadline', 'Create a Google Drive folder', 'Send a gift to the client']}
           variants='secondary'
           titleLink='Verify now'
-          hrefLink='/'
+          hrefLink='#contact'
         />
       </div>
     </section>

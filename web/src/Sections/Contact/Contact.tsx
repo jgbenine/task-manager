@@ -3,7 +3,7 @@ import './Contact.scss';
 
 export function Contact() {
   return (
-    <section className="contact">
+    <section className="contact" id="contact">
       <ContactForm />
     </section>
   )
