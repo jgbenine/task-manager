@@ -1,0 +1,48 @@
+.loading {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+
+  &__group {
+    width: 100%;
+    max-width: 100px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__circle {
+    position: absolute;
+    display: flex;
+    list-style: none;
+    border-radius: 50%;
+    background: $color-primary;
+    padding: 7px;
+    &--circle1 {
+      left: 8px;
+      animation: scaleToOne 0.5s infinite;
+    }
+    &--circle2 {
+      left: 5px;
+      animation: translateX 0.5s infinite;
+    }
+    &--circle3 {
+      left: 32px;
+      animation: translateX 0.5s infinite;
+    }
+    &--circle4 {
+      left: 56px;
+      animation: scaleToZero 0.5s infinite;
+    }
+  }
+}
+
+
+
+
+

@@ -5,6 +5,7 @@ import { TaskType } from '@/app/api/_server/tasks/tasks-server';
 import { CardListTask } from './CardListTask/CardListTask';
 import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import './CardList.scss';
+import { Loading } from '../Loading/Loading';
 
 type PropsLink = {
   btnLabel: string,
@@ -46,14 +47,18 @@ export function CardList({ variants = "primary", titleCard, descriptionCard, des
             <div className="cardList__items"
               ref={provided.innerRef}
               {...provided.droppableProps}>
-              {tasks?.map((item: TaskType, index) => (
-                <CardListTask
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  indexDragDrop={index}
-                />
-              ))}
+              {tasks.length === 0 ? (
+                <Loading />
+              ) : (
+                tasks.map((item: TaskType, index) => (
+                  <CardListTask
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    indexDragDrop={index}
+                  />
+                ))
+              )}
               {provided.placeholder}
               <ButtonPrimary
                 label={btnLabel}
