@@ -1,11 +1,10 @@
 'use client';
-import React, { useEffect } from 'react'
+import {useState } from 'react'
 import { ButtonPrimary } from '../Buttons/ButtonPrimary';
-import { TaskType } from '@/app/api/_server/tasks/tasks-server';
+import { TasksServer, TaskType } from '@/app/api/_server/tasks/tasks-server';
 import { CardListTask } from './CardListTask/CardListTask';
 import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import './CardList.scss';
-import { Loading } from '../Loading/Loading';
 
 type PropsLink = {
   btnLabel: string,
@@ -22,6 +21,8 @@ type PropsCardList = {
 
 
 export function CardList({ variants = "primary", titleCard, descriptionCard, descriptionCard_2, tasks, btnLabel, handleClickBtnCard }: PropsCardList) {
+  const [isLoading, setIsLoading] = useState(true);
+
 
   function reoderList(list: TaskType[], startPosition: number, endPosition: number) {
     const result = Array.from(list);
@@ -30,10 +31,15 @@ export function CardList({ variants = "primary", titleCard, descriptionCard, des
     return result;
   }
 
-  function onDragEnd(result: any) {
+  async function onDragEnd(result: any) {
     if (!result.destination) return;
     const items = reoderList(tasks, result.source.index, result.destination.index)
     tasks = items;
+    saveOrder();
+  }
+
+  async function saveOrder() {
+    await TasksServer.saveReorderTask(tasks);
   }
 
   return (
@@ -48,7 +54,7 @@ export function CardList({ variants = "primary", titleCard, descriptionCard, des
               ref={provided.innerRef}
               {...provided.droppableProps}>
               {tasks.length === 0 ? (
-                <Loading />
+                <p className="cardList__zeroTasks">You don't have tasks</p>
               ) : (
                 tasks.map((item: TaskType, index) => (
                   <CardListTask

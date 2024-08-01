@@ -94,6 +94,16 @@ async function updateTaskCompleted(taskId: string){
   }
 }
 
+async function saveReorderTask(tasks: TaskType[]){
+  try {
+    const taskIds = tasks.map(task => task.id);
+    await api.put("/tasks/reorder", { taskIds }); 
+    return tasks;
+  } catch (error) {
+    throw new Error("Error reordering tasks: " + error);
+  }
+}
+
 
 export const TasksServer = {
   getTasksByUser,
@@ -102,5 +112,6 @@ export const TasksServer = {
   getTaskById,
   updateTask,
   updateTaskCompleted,
-  deleteAllTasks
+  deleteAllTasks,
+  saveReorderTask
 };

@@ -5,7 +5,6 @@ import { useTask } from '@/contexts/TaskContext';
 import { Draggable } from '@hello-pangea/dnd';
 import useModal from '@/hooks/useModal';
 import './CardListTask.scss';
-import { useEffect } from 'react';
 
 
 type CardListTaskType = {
