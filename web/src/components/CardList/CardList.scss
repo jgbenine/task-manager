@@ -1,13 +1,12 @@
 .cardList {
   width: 100%;
-  max-width: 380px;
+  max-width: 470px;
   height: 100%;
   background-color: $color-white;
   box-shadow: 0px 4px 60px 0px #42424233;
   padding: 40px 22px;
   position: relative;
   overflow: hidden;
-
   &:before {
     content: "";
     width: 100%;
@@ -21,10 +20,13 @@
     &:before {
       background: $color-primary;
     }
+    .cardList-item__btnCheck svg {
+      display: flex !important;
+    }
   }
 
   &__title {
-   @include titleSecondary;
+    @include titleSecondary;
     font-weight: 600;
     text-align: center;
     margin-bottom: 10px;
@@ -50,44 +52,66 @@
     margin-top: 35px;
   }
 
-  &__item {
+  .cardList-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 16px;
-    max-width: 220px;
-    position: relative;
-    padding: 0 10px 0 40px;
-    cursor: pointer;
     font-weight: 500;
-    &:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      height: 17px;
-      width: 17px;
+    &:hover {
+      .cardList-actions {
+        display: flex !important;
+      }
+    }
+
+    &__task {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__btnCheck {
+      height: 22px;
+      width: 22px;
       border-radius: 50%;
       border: 2px solid $color-primary;
-    }
-    &::after {
-      content: url("/images/icons/check-icon.svg");
-      position: absolute;
-      left: 4px;
-      top: 0;
-      display: none;
-    }
-    &:hover {
-      font-weight: 600;
-      transition: all 0.3s ease;
-      &:before {
-        background: $color-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      svg {
+        display: none;
       }
-      &::after {
-        display: flex;
+      &:hover {
+        svg {
+          display: flex;
+        }
       }
     }
   }
 
-  .linkSecondary {
+  .cardList-actions {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    &__btn {
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 500;
+      &--delete {
+        color: #999999;
+      }
+      &--edit {
+        color: #e38d3f;
+      }
+    }
+  }
+
+  .btnPrimary {
     margin: 20px auto 0 auto;
     width: 100%;
-    max-width: unset;
+    background: $color-black;
+    border-radius: 40px;
   }
 }

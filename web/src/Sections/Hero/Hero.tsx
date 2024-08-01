@@ -25,9 +25,13 @@ export function Hero() {
             The only way to get things done
           </p>
           {!session?.user ? (
-            <ButtonPrimary label='Login to-do list' onClick={()=>openModal('login')} />
+            <ButtonPrimary label='Login to-do list' onClick={() => openModal('login')} />
           ) : (
-            <LinkSecondary label='Go to Dashboard' title='Go to Dashboard' href='/dashboard' />
+            <span className="hero__btns">
+              {/* <LinkSecondary label='Go to Dashboard' title='Go to Dashboard' href='/dashboard' /> */}
+              <LinkSecondary variants='black' label='Go to-do list' title='Go to Dashboard' href='#todo-list' />
+            </span>
+
           )}
         </article>
         <div className="hero__wrapperImg">
@@ -38,7 +42,7 @@ export function Hero() {
         <MouseIcon className="hero__icon" />
         <p>Scrolling</p>
       </span>
-      <ModalLogin isShowing={isShowing} closeModal={closeModal} />
+      <ModalLogin isShowingModalLogin={isShowing} closeModalLogin={closeModal} />
     </section>
   )
 }

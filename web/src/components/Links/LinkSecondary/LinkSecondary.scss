@@ -13,6 +13,9 @@
     background: $color-secondary;
     color: $color-white;
   }
+  &:focus{
+    color: $color-white;
+  }
 
   &--black{
     background: $color-black;
