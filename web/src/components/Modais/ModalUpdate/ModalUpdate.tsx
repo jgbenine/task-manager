@@ -3,24 +3,22 @@ import { Input } from '@/components/Form/components/Input/Input';
 import { TextArea } from '@/components/Form/components/TextArea/TextArea';
 import { ButtonPrimary } from '@/components/Buttons/ButtonPrimary';
 import { X } from 'lucide-react';
-import { useSessionContext } from '@/contexts/SessionContext';
 import { useTask } from '@/contexts/TaskContext';
 import { SelectStatus } from '@/components/Form/components/Select/SelectStatus';
+import { TasksServer } from '@/app/api/_server/tasks/tasks-server';
 import '../ModalTask/ModalTask.scss';
-import { TasksServer, TaskType } from '@/app/api/_server/tasks/tasks-server';
 
 type PropsModal = {
   isShowing: boolean;
-  closeModal: () => void;
   idTask: string;
   titlePlaceholder: string;
-  descriptionPlaceholder: string;
-  statusPlaceholder: string;
+  descriptionPlaceholder?: string;
+  statusPlaceholder?: string;
+  closeModal: () => void;
 };
 
 export function ModalUpdate({ idTask, isShowing, closeModal, titlePlaceholder, descriptionPlaceholder, statusPlaceholder }: PropsModal) {
   if (!isShowing) return null;
-
   const { refreshTasks } = useTask();
 
   async function handleUpdateTask(event: React.FormEvent<HTMLFormElement>) {
@@ -32,15 +30,10 @@ export function ModalUpdate({ idTask, isShowing, closeModal, titlePlaceholder, d
 
     if (!idTask) return;
 
-    await TasksServer.updateTask(idTask,
-      titleTask || undefined,
-      descriptionTask || undefined,
-      statusTask || undefined
-    );
+    await TasksServer.updateTask(idTask, titleTask || undefined, descriptionTask || undefined, statusTask || undefined);
     closeModal();
     refreshTasks();
   }
-
 
   return (
     <div className="modalTask">
@@ -59,8 +52,8 @@ export function ModalUpdate({ idTask, isShowing, closeModal, titlePlaceholder, d
         </div>
         <form className="modalTask-form" onSubmit={handleUpdateTask}>
           <Input name='title' label='Title' type="text" placeholder={titlePlaceholder} />
-          <TextArea name='description' label='Description' placeholder={descriptionPlaceholder} />
-          <SelectStatus labelStatus={statusPlaceholder} />
+          {descriptionPlaceholder && <TextArea name='description' label='Description' placeholder={descriptionPlaceholder} />}
+          {statusPlaceholder && <SelectStatus labelStatus={statusPlaceholder} />}
           <ButtonPrimary type="submit" label='Update Task' />
         </form>
       </div>

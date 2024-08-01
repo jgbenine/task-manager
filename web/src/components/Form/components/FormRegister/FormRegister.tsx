@@ -1,7 +1,8 @@
-import React from 'react'
 import { ButtonPrimary } from '@/components/Buttons/ButtonPrimary'
 import { Input } from '@/components/Form/components/Input/Input';
-import registerUser from '../_actions/registerUser';
+import registerUser from '@/app/(auth)/_actions/registerUser';
+import './FormRegister.scss'
+
 
 export function FormRegister() {
   return (

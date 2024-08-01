@@ -13,7 +13,7 @@ type PropsModal = {
   closeModal: () => void;
 };
 
-export default function ModalTask({ isShowing, closeModal }: PropsModal) {
+export function ModalTask({ isShowing, closeModal }: PropsModal) {
   if (!isShowing) return null;
 
   const { session } = useSessionContext();

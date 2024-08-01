@@ -1,9 +1,8 @@
 'use client'
-import ModalTask from '@/components/Modais/ModalTask/ModalTask';
 import { useSessionContext } from '@/contexts/SessionContext';
-import useModal from '@/hooks/useModal';
+import { ModalTask } from '@/components/Modais/ModalTask/ModalTask';
 import { Plus } from 'lucide-react'
-import React from 'react'
+import useModal from '@/hooks/useModal';
 
 export function DashboardIntro() {
   const { isShowing, openModal, closeModal } = useModal();

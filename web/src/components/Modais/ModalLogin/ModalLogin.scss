@@ -20,7 +20,7 @@
     position: relative;
     margin: 10px;
     border-radius: 4px;
-    @include res-lg{
+    @include res-lg {
       padding: 52px;
     }
   }
@@ -80,13 +80,21 @@
     }
   }
 
-  &__linkRegister {
-    color: $color-black;
+  &__register {
+    width: 100%;
+    font-size: 0.8rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     margin-top: 10px;
-    text-decoration: underline;
+    gap: 5px;
+    .btnRegister {
+      font-family: "Montserrat", sans-serif;
+      color: $color-black;
+      display: flex;
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 
   &__btnLoginWith {

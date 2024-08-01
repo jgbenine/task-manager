@@ -3,9 +3,9 @@ import { TasksServer } from '@/app/api/_server/tasks/tasks-server'
 import { Pencil, Trash, ReceiptText } from 'lucide-react'
 import { useTask } from '@/contexts/TaskContext'
 import { ModalUpdate } from '../Modais/ModalUpdate/ModalUpdate'
+import { ModalDetails } from '../Modais/ModalDetails/ModalDetails'
 import useModal from '@/hooks/useModal';
 import './CardTask.scss';
-import ModalDetails from '../Modais/ModalDetails/ModalDetails'
 
 type PropsCardTask = {
   id: string,

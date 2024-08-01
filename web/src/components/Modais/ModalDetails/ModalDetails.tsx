@@ -12,7 +12,7 @@ type PropsModal = {
   status: string;
 };
 
-export default function ModalDetails({ isShowing, closeModal, idTask, titleDetails, descriptionDetails, status }: PropsModal) {
+export function ModalDetails({ isShowing, closeModal, idTask, titleDetails, descriptionDetails, status }: PropsModal) {
   if (!isShowing) return null;
 
   return (

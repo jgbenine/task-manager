@@ -1,29 +1,39 @@
 import { Input } from '../../Form/components/Input/Input';
 import { ButtonPrimary } from '../../Buttons/ButtonPrimary';
+import { ModalRegister } from '../ModalRegister/ModalRegister';
 import { X } from 'lucide-react';
-import Link from 'next/link';
 import MailSvg from '../../../../public/images/common/mail.svg'
-import LoginUser from '@/app/(auth)/register/_actions/loginUser';
+import LoginUser from '@/app/(auth)/_actions/loginUser';
+import useModal from '@/hooks/useModal';
 import './ModalLogin.scss';
 
 
 type PropsModal = {
-  isShowing: boolean;
-  closeModal: () => void;
+  isShowingModalLogin: boolean;
+  closeModalLogin: () => void;
 };
 
-export function ModalLogin({ isShowing, closeModal }: PropsModal) {
-  if (!isShowing) return null;
+export function ModalLogin({ isShowingModalLogin, closeModalLogin }: PropsModal) {
+  const { isShowing, openModal, closeModal, activeModal } = useModal();
 
- async function handleSubmit(FormData: FormData){
+  if (!isShowingModalLogin) return null;
+
+  async function handleSubmit(FormData: FormData) {
     await LoginUser(FormData);
     window.location.reload();
   }
- 
+
+  function handleModalRegister(event: React.FormEvent){
+    event.preventDefault();
+    console.log('open Modal')
+    openModal('register');
+    // closeModalLogin();
+  }
+
   return (
     <div className="modalLogin">
       <div className="modalLogin__content">
-        <button className="modalLogin__btnClose" onClick={closeModal}><X /></button>
+        <button className="modalLogin__btnClose" onClick={closeModalLogin}><X /></button>
         <div className="modalLogin-intro">
           <div className="modalLogin-intro__wrapperImg">
             <MailSvg />
@@ -41,9 +51,13 @@ export function ModalLogin({ isShowing, closeModal }: PropsModal) {
             <GgIcon />
           </button> */}
           <ButtonPrimary type='submit' label="Sign in" />
-          <Link className="modalLogin__linkRegister" href="/register">Register</Link>
+          <span className="modalLogin__register">
+            Don't you have an account?
+            <button className="btnRegister" onClick={handleModalRegister}>Register</button>
+          </span>
         </form>
       </div>
-    </div>
+      <ModalRegister isShowing={isShowing} closeModal={closeModal} />
+    </div> 
   )
 }
