@@ -1,11 +1,11 @@
 'use client'
 import { CardList } from '@/components/CardList/CardList'
-import BlackBelt from '@/components/BlackBelt/BlackBelt'
 import { useTask } from '@/contexts/TaskContext';
 import { useSessionContext } from '@/contexts/SessionContext';
-import {ModalTask} from '@/components/Modais/ModalTask/ModalTask';
+import { ModalTask } from '@/components/Modais/ModalTask/ModalTask';
 import { useMemo } from 'react';
 import { TasksServer } from '@/app/api/_server/tasks/tasks-server';
+import BlackBelt from '@/components/BlackBelt/BlackBelt'
 import useModal from '@/hooks/useModal';
 import './TodoListHome.scss'
 
@@ -21,8 +21,8 @@ export function TodoListHome() {
   }), [tasks]);
 
 
-  async function handleDeletAllTasks(){
-    if(!session?.user.email){
+  async function handleDeletAllTasks() {
+    if (!session?.user.email) {
       throw new Error('User not logged in');
     }
     console.log(session?.user.email);
@@ -32,19 +32,19 @@ export function TodoListHome() {
   }
 
   return (
-    <section className="functionalities" id="todo-list">
+    <section className="todo-list">
       <BlackBelt
         title="To-do List"
         description="Drag and drop to set your main priorities, check when done and create what´s new."
       />
       {session && (
-        <div className="functionalities__container">
+        <div className="todo-list__container" id="todo-list">
           <CardList
             titleCard='To-do'
             descriptionCard='Take a breath. Start doing.'
             btnLabel='Create task'
             tasks={tasksFilter['PENDING']}
-            handleClickBtnCard={() => {openModal('newtask') }}
+            handleClickBtnCard={() => { openModal('newtask') }}
           />
           <CardList
             titleCard='Done'
