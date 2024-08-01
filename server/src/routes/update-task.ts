@@ -12,7 +12,7 @@ export async function updateTask(app: FastifyInstance) {
       body: z.object({
         title: z.string().min(4).optional(),
         description: z.string().optional(),
-        status: z.string().optional(),
+        status: z.enum(['PENDING', 'IN_PROGRESS', 'COMPLETED']).optional(),
       }),
     },
     handler: async (request, reply) => {
