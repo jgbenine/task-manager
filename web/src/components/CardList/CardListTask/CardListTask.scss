@@ -1,0 +1,68 @@
+.cardListTask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  gap: 10px;
+  margin: 12px 0;
+  &:hover {
+    .cardListTask-actions {
+      display: flex !important;
+    }
+  }
+
+  &__title {
+    max-width: 290px;
+    font-weight: 500;
+  }
+
+  &__task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__btnCheck {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: 2px solid $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    svg {
+      display: none;
+      height: 17px;
+      width: 17px;
+    }
+    &:hover {
+      svg {
+        display: flex;
+      }
+    }
+  }
+
+  .cardListTask-actions {
+    display: none;
+    align-items: center;
+    gap: 10px;
+
+    &__btn {
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 500;
+
+      &:hover {
+        font-weight: 600;
+      }
+      &--delete {
+        color: #999999;
+      }
+      &--edit {
+        color: #e38d3f;
+      }
+    }
+  }
+}
