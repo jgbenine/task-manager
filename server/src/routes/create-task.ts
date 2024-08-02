@@ -26,11 +26,24 @@ export async function createTask(app: FastifyInstance) {
           return reply.status(404).send({ error: "User not found" });
         }
 
+        // Encontrar o maior valor de order
+        const maxOrderTask = await prisma.task.findFirst({
+          orderBy: {
+            order: 'desc',
+          },
+          select: {
+            order: true,
+          },
+        });
+
+        const newOrder = maxOrderTask ? maxOrderTask.order + 1 : 1;
+
         const task = await prisma.task.create({
           data: {
             title,
             description,
             userId: user.id,
+            order: newOrder,
           },
         });
 

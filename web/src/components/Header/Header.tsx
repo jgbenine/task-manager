@@ -42,7 +42,7 @@ export function Header() {
             <button className="header__logout" onClick={logOut}>Sair</button>
           </div>}
       </header>
-      {activeModal == 'login' && <ModalLogin isShowing={isShowing} closeModal={closeModal} />}
+      {activeModal == 'login' && <ModalLogin isShowingModalLogin={isShowing} closeModalLogin={closeModal} />}
     </>
   )
 }

@@ -8,8 +8,9 @@ import { createUser } from "./routes/create-user";
 import { getUserByEmail } from "./routes/get-user";
 import { getTasksUser } from "./routes/get-tasks-by-user";
 import { inviteEmail } from "./routes/invite-email";
+import { deleteAllTasksByUser } from "./routes/delete-all-tasks-by-user";
+import { tasksReorder } from "./routes/tasks-reorder";
 import cors from "@fastify/cors"
-import { env } from "process";
 
 const app = fastify();
 
@@ -36,7 +37,9 @@ app.register(updateTask);
 app.register(createUser);
 app.register(getUserByEmail);
 app.register(getTasksUser);
+app.register(deleteAllTasksByUser);
 app.register(inviteEmail);
+app.register(tasksReorder);
 
 
 // Exportar função para Vercel

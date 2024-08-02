@@ -1,0 +1,90 @@
+.cardListTask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  gap: 10px;
+  margin: 2px 0;
+  min-height: 45px;
+  &:hover {
+    .cardListTask-actions {
+      display: flex !important;
+    }
+  }
+
+  &__title {
+    font-size: 12px;
+    line-height: 20px;
+    max-width: 170px;
+    font-weight: 500;
+    cursor: grab;
+    @include res-sm{
+      font-size: 14px;
+      max-width: 250px;
+    }
+    @include res-lg {
+      max-width: 290px;
+    }
+  }
+
+  &__task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__btnCheck {
+    border-radius: 50%;
+    border: 2px solid $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    @include res-sm {
+      height: 24px;
+      width: 24px;
+    }
+    svg {
+      display: none;
+      height: 17px;
+      width: 17px;
+    }
+    &:hover {
+      svg {
+        display: flex;
+      }
+    }
+  }
+
+  .cardListTask-actions {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    @include res-lg{
+      gap: 5px;
+      flex-direction: row;
+    }
+
+    &__btn {
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 500;
+      @include res-sm {
+        font-size: 0.8rem;
+      }
+
+      &:hover {
+        font-weight: 600;
+      }
+      &--delete {
+        color: #999999;
+      }
+      &--edit {
+        color: #e38d3f;
+      }
+    }
+  }
+}

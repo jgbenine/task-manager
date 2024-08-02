@@ -1,36 +1,79 @@
-import React from 'react'
+'use client';
+import {useState } from 'react'
+import { ButtonPrimary } from '../Buttons/ButtonPrimary';
+import { TasksServer, TaskType } from '@/app/api/_server/tasks/tasks-server';
+import { CardListTask } from './CardListTask/CardListTask';
+import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import './CardList.scss';
-import LinkSecondary from '../Links/LinkSecondary/LinkSecondary';
 
 type PropsLink = {
-  titleLink: string,
-  hrefLink: string
+  btnLabel: string,
+  handleClickBtnCard: () => void,
 }
 
 type PropsCardList = {
-  title: string,
-  description: string,
-  description_2?: string,
-  items: Array<string>,
+  titleCard: string,
+  descriptionCard: string,
+  descriptionCard_2?: string,
+  tasks: TaskType[],
   variants?: "primary" | "secondary"
 } & PropsLink;
 
-export function CardList({ variants = "primary", title, description, description_2, items, titleLink, hrefLink }: PropsCardList) {
+
+export function CardList({ variants = "primary", titleCard, descriptionCard, descriptionCard_2, tasks, btnLabel, handleClickBtnCard }: PropsCardList) {
+  const [isLoading, setIsLoading] = useState(true);
+
+
+  function reoderList(list: TaskType[], startPosition: number, endPosition: number) {
+    const result = Array.from(list);
+    const [removed] = result.splice(startPosition, 1)
+    result.splice(endPosition, 0, removed);
+    return result;
+  }
+
+  async function onDragEnd(result: any) {
+    if (!result.destination) return;
+    const items = reoderList(tasks, result.source.index, result.destination.index)
+    tasks = items;
+    saveOrder();
+  }
+
+  async function saveOrder() {
+    await TasksServer.saveReorderTask(tasks);
+  }
+
   return (
     <div className={`cardList ${variants === 'secondary' ? 'cardList--secondary' : ''}`}>
-      <h3 className="cardList__title">{title}</h3>
-      <p className="cardList__description">{description}</p>
-      <p className="cardList__description cardList__description--highlight">{description_2}</p>
-      <ul className="cardList__items">
-        {items.map((item: string) => (
-          <li className="cardList__item" key={item}>{item}</li>
-        ))}
-        <LinkSecondary
-          label={titleLink}
-          href={hrefLink}
-          variants='black'
-        />
-      </ul>
+      <h3 className="cardList__title">{titleCard}</h3>
+      <p className="cardList__description">{descriptionCard}</p>
+      {descriptionCard_2 && <p className="cardList__description cardList__description--highlight">{descriptionCard_2}</p>}
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="taksCard" type="list" direction="vertical">
+          {(provided) => (
+            <div className="cardList__items"
+              ref={provided.innerRef}
+              {...provided.droppableProps}>
+              {tasks.length === 0 ? (
+                <p className="cardList__zeroTasks">You don't have tasks</p>
+              ) : (
+                tasks.map((item: TaskType, index) => (
+                  <CardListTask
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    indexDragDrop={index}
+                  />
+                ))
+              )}
+              {provided.placeholder}
+              <ButtonPrimary
+                label={btnLabel}
+                onClick={handleClickBtnCard}
+              />
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </div>
   )
 }

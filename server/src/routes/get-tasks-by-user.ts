@@ -24,6 +24,9 @@ export async function getTasksUser(app: FastifyInstance) {
             status: true,
             created_at: true,
           },
+          orderBy: {
+            order: 'asc',
+          },
         });
 
         return tasks;
