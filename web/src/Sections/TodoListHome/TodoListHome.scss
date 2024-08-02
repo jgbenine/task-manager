@@ -17,6 +17,7 @@
     background: url('/images/common/grafismo-lateral.png')no-repeat;
     background-size: contain;
     background-position: 0 -150px;
+    padding: 0 10px;
     @include res-md{
       padding-bottom: 50px;
       flex-direction: row;

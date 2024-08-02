@@ -4,9 +4,12 @@
   height: 100%;
   background-color: $color-white;
   box-shadow: 0px 4px 60px 0px #42424233;
-  padding: 40px 22px;
+  padding: 40px 12px;
   position: relative;
   overflow: hidden;
+  @include res-md{
+    padding: 40px 22px;
+  }
   &:before {
     content: "";
     width: 100%;
@@ -23,7 +26,11 @@
     .cardList-item__btnCheck svg {
       display: flex !important;
     }
+    .cardListTask-actions__btn--edit{
+      display: none
+    }
   }
+
 
   &__title {
     @include titleSecondary;

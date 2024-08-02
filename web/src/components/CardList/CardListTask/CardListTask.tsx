@@ -10,12 +10,11 @@ import './CardListTask.scss';
 type CardListTaskType = {
   id: string;
   title: string;
-  variants?: 'primary' | 'secondary';
   indexDragDrop: number;
 }
 
 
-export function CardListTask({ variants = "primary", id, title, indexDragDrop }: CardListTaskType) {
+export function CardListTask({ id, title, indexDragDrop }: CardListTaskType) {
   const { isShowing, openModal, activeModal, closeModal } = useModal();
   const { refreshTasks } = useTask();
 
@@ -30,7 +29,7 @@ export function CardListTask({ variants = "primary", id, title, indexDragDrop }:
     await TasksServer.updateTaskCompleted(taskId);
     refreshTasks();
   }
-  
+
   return (
     <Draggable draggableId={id} index={indexDragDrop} >
       {(provided) => (
@@ -46,10 +45,9 @@ export function CardListTask({ variants = "primary", id, title, indexDragDrop }:
             <p className="cardListTask__title">{title}</p>
           </div>
           <div className="cardListTask-actions">
-            {variants === 'primary' &&
-              <button
-                className="cardListTask-actions__btn cardListTask-actions__btn--edit"
-                onClick={() => openModal(`updateTaskHome${id}`)}>Edit</button>}
+            <button
+              className="cardListTask-actions__btn cardListTask-actions__btn--edit"
+              onClick={() => openModal(`updateTaskHome${id}`)}>Edit</button>
             <button
               className="cardListTask-actions__btn cardListTask-actions__btn--delete"
               onClick={() => handleDeletTask(id)}>Delete</button>
