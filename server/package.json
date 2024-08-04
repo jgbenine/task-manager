@@ -12,7 +12,7 @@
     "start": "node dist/server.js",
     "dev": "tsx watch src/server.ts",
     "build": "tsup src",
-    "vercel-build": "npx prisma migrate deploy"
+    "postinstall": "npx prisma generate"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
