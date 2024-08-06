@@ -1,10 +1,10 @@
 'use client'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { CardBlog } from '../CardBlog/CardBlog';
 import './SliderBlog.scss'
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { CardBlog } from '../CardBlog/CardBlog';
 
 export function SliderBlog() {
   return (
@@ -12,7 +12,6 @@ export function SliderBlog() {
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
-        centeredSlides={true}
         loop={true}
         modules={[Pagination]}
         className="sliderBlog"
@@ -26,11 +25,11 @@ export function SliderBlog() {
           },
           992: {
             slidesPerView: 3,
-            spaceBetween: 40,
+            spaceBetween: 20,
           },
           1230: {
             slidesPerView: 4,
-            spaceBetween: 50,
+            spaceBetween: 25,
           }}}>
         <SwiperSlide>
           <CardBlog

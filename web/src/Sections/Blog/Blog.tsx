@@ -1,6 +1,5 @@
-import React from 'react'
-import './Blog.scss';
 import { SliderBlog } from '@/components/Slider/SliderBlog';
+import './Blog.scss';
 
 export function BlogSection() {
   return (

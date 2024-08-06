@@ -43,8 +43,6 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    font-weight: 600;
-    text-decoration: underline;
   }
 
   &__icon {
@@ -63,6 +61,15 @@
 
   &__logout {
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: $color-white;
+    padding: 3px 10px;
+    border-radius: 2px;
+
+    background: rgba(0, 0, 0, 0.4);
+    @include res-lg{
+
+    }
   }
 }

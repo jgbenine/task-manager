@@ -1,12 +1,12 @@
 'use client'
 import { ModalLogin } from '@/components/Modais/ModalLogin/ModalLogin';
 import { ButtonPrimary } from '@/components/Buttons/ButtonPrimary';
+import { useSessionContext } from '@/contexts/SessionContext';
+import LinkSecondary from '@/components/Links/LinkSecondary/LinkSecondary';
 import Image from 'next/image';
 import MouseIcon from '/public/images/icons/mouse.svg'
-import './Hero.scss';
-import LinkSecondary from '@/components/Links/LinkSecondary/LinkSecondary';
-import { useSessionContext } from '@/contexts/SessionContext';
 import useModal from '@/hooks/useModal';
+import './Hero.scss';
 
 
 export function Hero() {
