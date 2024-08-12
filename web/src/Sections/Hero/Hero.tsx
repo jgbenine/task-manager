@@ -35,7 +35,7 @@ export function Hero() {
           )}
         </article>
         <div className="hero__wrapperImg">
-          <Image src="/images/common/hero-img.png" alt="" width={0} height={0} sizes='100vh' className="hero__image" />
+          <Image src="/images/common/hero-img.jpg" alt="" width={0} height={0} sizes='100vh' className="hero__image" />
         </div>
       </div>
       <span className='hero__guide'>

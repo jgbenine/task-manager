@@ -3,8 +3,8 @@ import { ModalLogin } from '../Modais/ModalLogin/ModalLogin';
 import { ButtonPrimary } from '../Buttons/ButtonPrimary';
 import { User } from 'lucide-react'
 import { useSessionContext } from '@/contexts/SessionContext';
+import { PackageCheck } from 'lucide-react'
 import Link from 'next/link';
-import Image from 'next/image';
 import useModal from '@/hooks/useModal';
 import './Header.scss';
 
@@ -16,23 +16,20 @@ export function Header() {
   return (
     <>
       <header className="header">
-        <Link href="/" className="header__logo">
-          <Image
-            className="header__imgLogo"
-            src="/images/common/Logo.svg"
-            alt='Logo'
-            width={0}
-            height={0}
-            sizes='100vh'
-            quality={100}
-            priority
-          />
+        <Link href="/" className="header__intro">
+          <span>
+            <PackageCheck
+              className="header__imgLogo"
+              size={40}
+            />
+          </span>
+          <p className="header__text">To-do list</p>
         </Link>
         {!session?.user ? (
           <ButtonPrimary
             label="Entrar"
             title="Realizar login"
-            onClick={()=>openModal('login')}
+            onClick={() => openModal('login')}
           />
         ) :
           <div className="header__user">
