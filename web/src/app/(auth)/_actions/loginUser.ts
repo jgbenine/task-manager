@@ -1,3 +1,4 @@
+//Login para realizar no lado do servidor via actions
 "use server";
 import { AuthError } from "next-auth";
 import { signIn } from "../../../../auth";
