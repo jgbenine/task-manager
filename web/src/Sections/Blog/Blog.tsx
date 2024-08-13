@@ -5,7 +5,7 @@ export function BlogSection() {
   return (
     <section className="blogSection">
       <div className="blogSection__container">
-        <h2 className="blogSection__title">good thinks</h2>
+        <h2 className="blogSection__title">Good news</h2>
         <SliderBlog />
       </div>
     </section>

@@ -5,6 +5,7 @@ import { useSessionContext } from '@/contexts/SessionContext';
 import { ModalTask } from '@/components/Modais/ModalTask/ModalTask';
 import { useMemo } from 'react';
 import { TasksServer } from '@/app/api/_server/tasks/tasks-server';
+import Link from 'next/link';
 import BlackBelt from '@/components/BlackBelt/BlackBelt'
 import useModal from '@/hooks/useModal';
 import './TodoListHome.scss'
@@ -38,24 +39,30 @@ export function TodoListHome() {
         description="Drag and drop to set your main priorities, check when done and create what´s new."
       />
       {session && (
-        <div className="todo-list__container" id="todo-list">
-          <CardList
-            titleCard='To-do'
-            descriptionCard='Take a breath. Start doing.'
-            btnLabel='Create task'
-            tasks={tasksFilter['PENDING']}
-            handleClickBtnCard={() => { openModal('newtask') }}
-          />
-          <CardList
-            titleCard='Done'
-            descriptionCard='Congratulions!'
-            descriptionCard_2={`You have done ${tasksFilter['COMPLETED'].length} tasks`}
-            tasks={tasksFilter['COMPLETED']}
-            variants='secondary'
-            btnLabel='Erase all'
-            handleClickBtnCard={handleDeletAllTasks}
-          />
-        </div>
+        <>
+          <div className="todo-list__container" id="todo-list">
+            <CardList
+              titleCard='To-do'
+              descriptionCard='Take a breath. Start doing.'
+              btnLabel='Create task'
+              tasks={tasksFilter['PENDING']}
+              handleClickBtnCard={() => { openModal('newtask') }}
+            />
+            <CardList
+              titleCard='Done'
+              descriptionCard='Congratulions!'
+              descriptionCard_2={`You have done ${tasksFilter['COMPLETED'].length} tasks`}
+              tasks={tasksFilter['COMPLETED']}
+              variants='secondary'
+              btnLabel='Erase all'
+              handleClickBtnCard={handleDeletAllTasks}
+            />
+          </div>
+          <Link href="/dashboard" className="todo-list__dashboard">
+            <span>Go to </span>
+            your dashboard
+          </Link>
+        </>
       )}
       {isShowing && (
         <ModalTask isShowing={isShowing} closeModal={closeModal} />

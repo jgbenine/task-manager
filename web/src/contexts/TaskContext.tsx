@@ -22,7 +22,7 @@ export function TaskProvider({ children }: { children: ReactNode }) {
       setTasks(tasksData);
     }
     fetchTasks()
-  }, [])
+  }, [idUser])
 
 
   async function refreshTasks() {
@@ -30,7 +30,6 @@ export function TaskProvider({ children }: { children: ReactNode }) {
     const tasksData = await TasksServer.getTasksByUser(idUser);
     setTasks(tasksData);
   }
-
 
   return (
     <TaskContext.Provider
