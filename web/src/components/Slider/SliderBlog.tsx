@@ -30,92 +30,37 @@ export function SliderBlog() {
           1230: {
             slidesPerView: 4,
             spaceBetween: 25,
-          }}}>
+          }
+        }}>
         <SwiperSlide>
           <CardBlog
-            title='Organize your daily job enhance your life performance'
-            category='Category'
-            imageUrl='/images/common/img-post1.png'
+            title='A personalized dashboard to visualize and manipulate your tasks'
+            category='Dashboard'
+            imageUrl='/images/common/blog/img-post3.webp'
             link='/'
           />
         </SwiperSlide>
         <SwiperSlide>
           <CardBlog
-            title='Mark one activity as done makes your brain understands the power of doing'
-            category='Category'
-            imageUrl='/images/common/img-post2.png'
+            title='Create, edit and new statuses for your tasks for better organization'
+            category='Management'
+            imageUrl='/images/common/blog/img-post4.webp'
             link='/'
           />
         </SwiperSlide>
         <SwiperSlide>
           <CardBlog
-            title='Careful with missunderstanding the difference between a list of things and a list of desires'
-            category='Category'
-            imageUrl='/images/common/img-post3.png'
+            title='Your best free task manager'
+            category='Tasks'
+            imageUrl='/images/common/blog/img-post5.webp'
             link='/'
           />
         </SwiperSlide>
         <SwiperSlide>
           <CardBlog
-            title='Careful with missunderstanding the difference between a list of things and a list of desires'
-            category='Category'
-            imageUrl='/images/common/img-post3.png'
-            link='/'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardBlog
-            title='Organize your daily job enhance your life performance'
-            category='Category'
-            imageUrl='/images/common/img-post1.png'
-            link='/'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardBlog
-            title='Mark one activity as done makes your brain understands the power of doing'
-            category='Category'
-            imageUrl='/images/common/img-post2.png'
-            link='/'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardBlog
-            title='Careful with missunderstanding the difference between a list of things and a list of desires'
-            category='Category'
-            imageUrl='/images/common/img-post3.png'
-            link='/'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardBlog
-            title='Careful with missunderstanding the difference between a list of things and a list of desires'
-            category='Category'
-            imageUrl='/images/common/img-post3.png'
-            link='/'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardBlog
-            title='Careful with missunderstanding the difference between a list of things and a list of desires'
-            category='Category'
-            imageUrl='/images/common/img-post3.png'
-            link='/'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardBlog
-            title='Organize your daily job enhance your life performance'
-            category='Category'
-            imageUrl='/images/common/img-post1.png'
-            link='/'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardBlog
-            title='Careful with missunderstanding the difference between a list of things and a list of desires'
-            category='Category'
-            imageUrl='/images/common/img-post3.png'
+            title='Create and access with your personalized credentials'
+            category='Credentials'
+            imageUrl='/images/common/blog/img-post2.webp'
             link='/'
           />
         </SwiperSlide>
