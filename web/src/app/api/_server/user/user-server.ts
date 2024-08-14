@@ -8,7 +8,7 @@ export type UserType = {
   password: string;
 };
 
-//Rota para API Create User
+
 async function createUser({ id, name, email, password }: UserType) {
   //Criptografando password para salvar senha na base de dados.
   const hashedPassword = hashSync(password);
@@ -24,7 +24,7 @@ async function createUser({ id, name, email, password }: UserType) {
   }
 }
 
-//Rota p/ API Get User
+
 async function getUserByEmail(email: string): Promise<UserType | null> {
   try {
     const response = await api.get<{ user: UserType }>(`/user/${email}`);

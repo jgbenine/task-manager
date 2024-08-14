@@ -7,17 +7,17 @@ export const {
   handlers: { GET, POST },
   auth,
   signIn,
-  signOut
+  signOut,
 } = NextAuth({
   providers: [
     Credentials({
       credentials: {
         email: {
-          label: 'Email',
+          label: "Email",
         },
         password: {
-          label: 'Password',
-          type: 'password',
+          label: "Password",
+          type: "password",
         },
       },
       async authorize(credentials) {
@@ -32,14 +32,14 @@ export const {
         const matches = compareSync(password, user.password);
 
         if (matches) {
-          return { id: user.id, email: user.email };
+          return { id: user.id, email: user.email, name: user.name };
         }
         return null;
       },
     }),
   ],
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
   },
   callbacks: {
     async jwt({ token, user }) {

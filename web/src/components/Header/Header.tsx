@@ -33,10 +33,13 @@ export function Header() {
           />
         ) :
           <div className="header__user">
-            <span className="header__icon">
+            <span className="header__user-avatar">
               <User />
             </span>
-            <button className="header__logout" onClick={logOut}>Sair</button>
+            <div className="header__user-info">
+              <p className="header__user-name">{session.user.name}</p>
+              <button className="header__logout" onClick={logOut}>Logout</button>
+            </div>
           </div>}
       </header>
       {activeModal == 'login' && <ModalLogin isShowingModalLogin={isShowing} closeModalLogin={closeModal} />}
