@@ -23,10 +23,9 @@ export function TodoListHome() {
 
 
   async function handleDeletAllTasks() {
-    if (!session?.user.email) {
+    if (!session?.user) {
       throw new Error('User not logged in');
     }
-    console.log(session?.user.email);
     await TasksServer.deleteAllTasks(session.user.email);
     window.alert(`${tasksFilter.COMPLETED.length} completed tasks were deleted`);
     refreshTasks();

@@ -1,6 +1,5 @@
 import { Input } from '../../Form/components/Input/Input';
 import { ButtonPrimary } from '../../Buttons/ButtonPrimary';
-import { ModalRegister } from '../ModalRegister/ModalRegister';
 import { X } from 'lucide-react';
 import { signIn } from "next-auth/react";
 import useModal from '@/hooks/useModal';
@@ -12,7 +11,6 @@ type PropsModal = {
 };
 
 export function ModalLogin({ isShowingModalLogin, closeModalLogin }: PropsModal) {
-  const { isShowing, openModal, closeModal, activeModal } = useModal();
 
   if (!isShowingModalLogin) return null;
 
@@ -30,11 +28,6 @@ export function ModalLogin({ isShowingModalLogin, closeModalLogin }: PropsModal)
     closeModalLogin();
   }
 
-  function handleModalRegister(event: React.FormEvent) {
-    event.preventDefault();
-    openModal('register');
-  }
-
   return (
     <div className="modalLogin">
       <div className="modalLogin__content">
@@ -49,11 +42,10 @@ export function ModalLogin({ isShowingModalLogin, closeModalLogin }: PropsModal)
           <ButtonPrimary type='submit' label="Sign in" />
           <span className="modalLogin__register">
             Don't you have an account?
-            <button className="btnRegister" onClick={handleModalRegister}>Register</button>
+            <a className="btnRegister" href="/register">Register</a>
           </span>
         </form>
       </div>
-      <ModalRegister isShowing={isShowing} closeModal={closeModal} />
     </div>
   )
 }
